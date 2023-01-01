@@ -92,6 +92,7 @@ p {
 
 .temperature canvas {
   margin-right: 10px;
+  margin-bottom: 20px;
   display: inline-block;
 }
 
