@@ -1,0 +1,4 @@
+.humidity .wind p {
+  display: block auto 0;
+  text-align: right;
+}
