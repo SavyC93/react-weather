@@ -17,6 +17,16 @@ function App() {
       <p>Clear Sky</p>
       <Temperature />
       <Forecast />
+      <p>
+        <a
+          href="https://github.com/SavyC93/react-weather"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open-sourced
+        </a>{" "}
+        by Savannah Chin
+      </p>
     </div>
   );
 }
