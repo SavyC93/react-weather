@@ -20,7 +20,7 @@ function App() {
             <strong>Denver</strong>
           </h1>
           <p>Last updated on Monday at 12:10pm</p>
-          <Temperature />
+          <Temperature defaultCity="Denver" />
           <Forecast />
         </div>
         <p>
