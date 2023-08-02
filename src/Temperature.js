@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Temperature.css";
+import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import { ColorRing } from "react-loader-spinner";
 
@@ -13,6 +14,7 @@ export default function Temperature(props) {
       temp: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
+      date: new Date(response.data.dt * 1000),
       city: response.data.name,
       humidity: response.data.main.humidity,
     });
@@ -20,18 +22,15 @@ export default function Temperature(props) {
 
   if (weatherData.ready) {
     return (
-      <div className="row">
-        <div className="col-6">
-          <div className="temperature">
-            <strong>{weatherData.temp}</strong>
-            <span className="unit">°C</span>
-          </div>
-          <p className="text-capitalize">{weatherData.description}</p>
+      <div className="WeatherLayout">
+        <div>
+          <form className="Search">
+            <input type="search" placeholder="Type in your city..." />
+            <input type="submit" value="Search" />
+          </form>
         </div>
-        <div className="col-6">
-          <p>Humidity: {weatherData.humidity}%</p>
-          <p>Wind: {weatherData.wind} km/h</p>
-        </div>
+        <h2>Hey Beautiful! How is it in...</h2>
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {

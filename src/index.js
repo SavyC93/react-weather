@@ -1,9 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import React from "react";
-import Search from "./Search";
 import axios from "axios";
 import Temperature from "./Temperature";
+import WeatherInfo from "./WeatherInfo";
 import Forecast from "./Forecast";
 import "./App.css";
 import reportWebVitals from "./reportWebVitals";
@@ -14,12 +14,6 @@ function App() {
     <div className="App">
       <div className="container">
         <div className="weather-app">
-          <Search />
-          <h1>Hey Beautiful! How is it in...</h1>
-          <h1>
-            <strong>Denver</strong>
-          </h1>
-          <p>Last updated on Monday at 12:10pm</p>
           <Temperature defaultCity="Denver" />
           <Forecast />
         </div>
