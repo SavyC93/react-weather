@@ -6,7 +6,7 @@ import { ColorRing } from "react-loader-spinner";
 
 export default function Temperature(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-
+  const [city, setCity] = useState(props.defaultCity);
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
@@ -20,12 +20,32 @@ export default function Temperature(props) {
     });
   }
 
+  function search() {
+    const apiKey = "3ed82e3bd8722b160448f1693f7570dd";
+    let city = "Denver";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="WeatherLayout">
         <div>
-          <form className="Search">
-            <input type="search" placeholder="Type in your city..." />
+          <form onSubmit={handleSubmit} className="Search">
+            <input
+              type="search"
+              placeholder="Type in your city..."
+              onChange={handleCityChange}
+            />
             <input type="submit" value="Search" />
           </form>
         </div>
@@ -34,11 +54,7 @@ export default function Temperature(props) {
       </div>
     );
   } else {
-    const apiKey = "3ed82e3bd8722b160448f1693f7570dd";
-    let city = "Denver";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
-
+    search();
     return;
     <ColorRing
       visible={true}
