@@ -1,9 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import React from "react";
-import axios from "axios";
 import Temperature from "./Temperature";
-import WeatherInfo from "./WeatherInfo";
 import "./App.css";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.css";
