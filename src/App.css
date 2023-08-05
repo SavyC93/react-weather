@@ -89,3 +89,8 @@ p {
   opacity: 0.7;
   color: #411c47;
 }
+
+.temperature canvas {
+  margin-right: 10px;
+  display: inline-block;
+}
