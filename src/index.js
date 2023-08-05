@@ -4,7 +4,6 @@ import React from "react";
 import axios from "axios";
 import Temperature from "./Temperature";
 import WeatherInfo from "./WeatherInfo";
-import Forecast from "./Forecast";
 import "./App.css";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.css";
@@ -15,7 +14,6 @@ function App() {
       <div className="container">
         <div className="weather-app">
           <Temperature defaultCity="Denver" />
-          <Forecast />
         </div>
         <p>
           <a
