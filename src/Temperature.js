@@ -12,9 +12,11 @@ export default function Temperature(props) {
     setWeatherData({
       ready: true,
       coordinates: response.data.coord,
+      lon: response.data.coord.lon,
+      lat: response.data.coord.lat,
       temp: Math.round(response.data.main.temp),
-      description: response.data.weather[0].description,
-      icon: response.data.weather[0].icon,
+      description: response.data.weather.description,
+      icon: response.data.weather.icon,
       wind: response.data.wind.speed,
       date: new Date(response.data.dt * 1000),
       city: response.data.name,
@@ -22,8 +24,8 @@ export default function Temperature(props) {
     });
   }
 
-  function search() {
-    const apiKey = "3ed82e3bd8722b160448f1693f7570dd";
+  function search(props) {
+    const apiKey = "9b77eeb61e3b275b0be225f1885f3d86";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
